@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
     "@tailwindcss/aspect-ratio": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "next": "11.1.2",
