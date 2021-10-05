@@ -5,7 +5,7 @@ import { MenuIcon, XIcon, UserIcon } from '@heroicons/react/outline';
 
 export const Header: VFC = () => {
   return (
-    <Popover className="relative bg-white shadow">
+    <Popover className="relative bg-white shadow z-10">
       <div className="flex justify-between items-center px-4 xl:px-0 py-4 md:py-6 md:max-w-7xl md:mx-auto">
         <div>
           <Link href="/">
