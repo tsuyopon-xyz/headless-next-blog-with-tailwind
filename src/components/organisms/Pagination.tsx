@@ -31,7 +31,7 @@ export const Pagination: VFC<Props> = ({ perPage, total, currentPage = 1 }) => {
                 className="mr-3 h-5 w-5 text-gray-400"
                 aria-hidden="true"
               />
-              Previous
+              前のページ
             </a>
           </Link>
         ) : null}
@@ -47,7 +47,7 @@ export const Pagination: VFC<Props> = ({ perPage, total, currentPage = 1 }) => {
         {currentPage < maxPage ? (
           <Link href={`?page=${currentPage + 1}`}>
             <a className={unselectedPageClassValues}>
-              Next
+              次のページ
               <ArrowNarrowRightIcon
                 className="ml-3 h-5 w-5 text-gray-400"
                 aria-hidden="true"
