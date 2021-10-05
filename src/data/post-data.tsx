@@ -1,6 +1,6 @@
 import type { Post } from '@/types/Post';
 
-export const posts: Post[] = Array.from({ length: 30 }).map((_, index) => {
+export const posts: Post[] = Array.from({ length: 81 }).map((_, index) => {
   return {
     id: (index + 1).toString(),
     title: 'ブログ記事のタイトルあああああああああああああああああああ',
