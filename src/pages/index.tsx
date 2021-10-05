@@ -1,14 +1,35 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { PostCardList } from '@/components/organisms/PostCardList';
+import { Pagination } from '@/components/organisms/Pagination';
 import { fetchAllPosts } from '@/services/posts.service';
 import type { Post } from '@/types/Post';
+
+type QueryParams = {
+  page?: string;
+};
 
 type Props = {
   posts: Post[];
 };
 
+const NUMBER_OF_POST_PER_PAGE = 10;
+
 const IndexPage: NextPage<Props> = ({ posts }) => {
+  const router = useRouter();
+  const queryParams = router.query as QueryParams;
+  const page =
+    queryParams.page && queryParams.page.length > 0
+      ? parseInt(queryParams.page, 10)
+      : 1;
+
+  const startIndex = NUMBER_OF_POST_PER_PAGE * (page - 1);
+  const postsForDisplay = posts.slice(
+    startIndex,
+    startIndex + NUMBER_OF_POST_PER_PAGE
+  );
+
   return (
     <div>
       <Head>
@@ -18,8 +39,18 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
       </Head>
 
       <main className="px-4 xl:px-0 py-[60px] grid grid-cols-1 md:grid-cols-3 md:max-w-7xl md:mx-auto gap-6">
-        <div className="md:col-span-2 grid md:grid-cols-2 gap-6">
-          <PostCardList posts={posts} />
+        <div className="md:col-span-2">
+          <div className="grid md:grid-cols-2 gap-6">
+            <PostCardList posts={postsForDisplay} />
+          </div>
+
+          <div className="mt-10">
+            <Pagination
+              perPage={NUMBER_OF_POST_PER_PAGE}
+              total={posts.length}
+              currentPage={page}
+            />
+          </div>
         </div>
         <div className="bg-yellow-300 md:col-start-3">サイドバーエリア</div>
       </main>
