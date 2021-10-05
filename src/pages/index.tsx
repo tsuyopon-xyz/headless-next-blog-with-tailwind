@@ -1,6 +1,14 @@
+import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { PostCardList } from '@/components/organisms/PostCardList';
+import { fetchAllPosts } from '@/services/posts.service';
+import type { Post } from '@/types/Post';
 
-export default function Home() {
+type Props = {
+  posts: Post[];
+};
+
+const IndexPage: NextPage<Props> = ({ posts }) => {
   return (
     <div>
       <Head>
@@ -9,7 +17,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>ああああ</main>
+      <main className="px-4 xl:px-0 py-[60px] grid grid-cols-1 md:grid-cols-3 md:max-w-7xl md:mx-auto gap-6">
+        <div className="md:col-span-2 grid md:grid-cols-2 gap-6">
+          <PostCardList posts={posts} />
+        </div>
+        <div className="bg-yellow-300 md:col-start-3">サイドバーエリア</div>
+      </main>
     </div>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
+  const posts = await fetchAllPosts();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
+
+export default IndexPage;
