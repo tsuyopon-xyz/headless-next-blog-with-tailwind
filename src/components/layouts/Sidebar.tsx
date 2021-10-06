@@ -95,6 +95,7 @@ const CategoryWidget: VFC<CategoryWidgetProps> = ({ categories }) => {
         className={`flex items-center py-3 hover:bg-indigo-50 hover:cursor-pointer ${
           isLastItem ? '' : 'border-b'
         }`}
+        onClick={() => alert('カテゴリページは未実装だよ')}
       >
         <div className="flex-grow text-gray-900 flex items-center">
           <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
@@ -129,6 +130,7 @@ const ArchiveWidget: VFC<ArchiveWidgetProps> = ({ archives }) => {
         className={`flex items-center py-3 hover:bg-indigo-50 hover:cursor-pointer ${
           isLastItem ? '' : 'border-b'
         }`}
+        onClick={() => alert('アーカイブページは未実装だよ')}
       >
         <div className="flex-grow text-gray-900 flex items-center">
           <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
