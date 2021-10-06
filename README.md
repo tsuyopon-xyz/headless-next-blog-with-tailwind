@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 概要
 
-## Getting Started
+このレポジトリは、以下の人向けに作成した学習用レポジトリです。
 
-First, run the development server:
+- Next.jsを学びたい人
+- React × TypeScriptを学びたい人
+- Tailwind CSSを学びたい人
+- 用意されたデザインを元にコーディングしたい人
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+「[デモページ](https://headless-next-blog-with-tailwind.vercel.app/)」をご覧いただくと分かる通り、内容はブログサイトになります。
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+静的ファイル生成、SPAのスキルを身につけたい方は、こちらの学習レポジトリがお役にたてば幸いです。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+#### ■補足1（このレポジトリのコードを使って本格的にブログを運用したい場合）
 
-To learn more about Next.js, take a look at the following resources:
+デモページ内のデータは全てダミーデータでローカルから読み込んでいます。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+より実践的にブログサイトを運営したい場合は、
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+・Headless CMSを活用してデータを管理(microCMSなど)
+・Headless CMSで管理しているデータを非同期通信などを使って取得する
+・取得したデータを利用する
 
-## Deploy on Vercel
+といった感じで運用すると良いでしょう。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### 補足2（未実装部分の解説）
+
+サイドバーに「カテゴリー」「アーカイブ」を用意していますが、「カテゴリーページ」「アーカイブページ」はあえて実装していません。
+
+デザイン的にはトップページの記事一覧と同じような形になると思うので、ぜひトップページの実装を参考に「カテゴリーページ」「アーカイブページ」の実装にチャレンジしていただけたらと思います。
+
+---
+
+## デモ
+
+- [デモページを見る](https://headless-next-blog-with-tailwind.vercel.app/)
+- [Figmaで作成したデザインを確認する](https://www.figma.com/file/A2qmhTPT6sDyiugiqyPuBQ/headless-next-blog-with-tailwind?node-id=9%3A271)
+- [動画で内容を確認する](https://youtu.be/_hm8aMMw8io)
+
+---
+
+## 使用しているツール
+
+- 開発系
+  - [Next.js](https://nextjs.org/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+- デザイン系
+  - [Figma](https://www.figma.com/)
+  - [Tailwind UI](https://tailwindui.com/)
+
+
+その他、開発で使っているライブラリなどの詳細は「package.json」をご覧いただけたらと思います。
+
+---
+## このレポジトリの内容で質問をしたい方へ
+
+以下リンク先のページで紹介している、LINE公式アカウントより質問をいただけたらと思います。
+
+- [LINE公式アカウント](https://tsuyopon.xyz/lp/mail-magazine/)
