@@ -3,8 +3,13 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { PostCardList } from '@/components/organisms/PostCardList';
 import { Pagination } from '@/components/organisms/Pagination';
-import { fetchAllPosts } from '@/services/posts.service';
-import type { Post } from '@/types/Post';
+import { Sidebar } from '@/components/layouts/Sidebar';
+import {
+  fetchAllPosts,
+  fetchAllCategories,
+  fetchAllArchives,
+} from '@/services/posts.service';
+import type { Post, Category, Archive } from '@/types/Post';
 
 type QueryParams = {
   page?: string;
@@ -12,11 +17,13 @@ type QueryParams = {
 
 type Props = {
   posts: Post[];
+  categories: Category[];
+  archives: Archive[];
 };
 
 const NUMBER_OF_POST_PER_PAGE = 10;
 
-const IndexPage: NextPage<Props> = ({ posts }) => {
+const IndexPage: NextPage<Props> = ({ posts, categories, archives }) => {
   const router = useRouter();
   const queryParams = router.query as QueryParams;
   const page =
@@ -52,7 +59,9 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
             />
           </div>
         </div>
-        <div className="bg-yellow-300 md:col-start-3">サイドバーエリア</div>
+        <div className="md:col-start-3">
+          <Sidebar categories={categories} archives={archives} />
+        </div>
       </main>
     </div>
   );
@@ -60,10 +69,14 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const posts = await fetchAllPosts();
+  const categories = await fetchAllCategories();
+  const archives = await fetchAllArchives();
 
   return {
     props: {
       posts,
+      categories,
+      archives,
     },
   };
 };

@@ -1,6 +1,7 @@
 import { VFC } from 'react';
 import Link from 'next/link';
 import { Label } from '@/components/atoms/Label';
+import { Card } from '@/components/atoms/Card';
 import type { Post } from '@/types/Post';
 
 type Props = {
@@ -9,12 +10,12 @@ type Props = {
 
 export const PostCard: VFC<Props> = ({ post }) => {
   return (
-    <div className="bg-white w-full border border-gray-300 box-border shadow-md">
+    <Card>
       <Link href={`/posts/${post.id}`}>
         <a className="block">
           <div className="relative overflow-hidden h-[238px]">
             <div className="absolute top-2 left-2">
-              <Label labelName={post.categoryName} />
+              <Label labelName={post.category.name} />
             </div>
             <div>
               <img
@@ -34,6 +35,6 @@ export const PostCard: VFC<Props> = ({ post }) => {
           </div>
         </a>
       </Link>
-    </div>
+    </Card>
   );
 };
