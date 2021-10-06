@@ -3,27 +3,21 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { PostCardList } from '@/components/organisms/PostCardList';
 import { Pagination } from '@/components/organisms/Pagination';
-import { Sidebar } from '@/components/layouts/Sidebar';
 import {
-  fetchAllPosts,
-  fetchAllCategories,
-  fetchAllArchives,
-} from '@/services/posts.service';
-import type { Post, Category, Archive } from '@/types/Post';
+  withSidebar,
+  WithSidebarProps,
+  getStaticProps,
+} from '@/containers/withSidebar';
 
 type QueryParams = {
   page?: string;
 };
 
-type Props = {
-  posts: Post[];
-  categories: Category[];
-  archives: Archive[];
-};
+type Props = WithSidebarProps;
 
 const NUMBER_OF_POST_PER_PAGE = 10;
 
-const IndexPage: NextPage<Props> = ({ posts, categories, archives }) => {
+const IndexPage: NextPage<Props> = ({ posts }) => {
   const router = useRouter();
   const queryParams = router.query as QueryParams;
   const page =
@@ -45,40 +39,21 @@ const IndexPage: NextPage<Props> = ({ posts, categories, archives }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="px-4 xl:px-0 py-[60px] grid grid-cols-1 md:grid-cols-3 md:max-w-7xl md:mx-auto gap-6">
-        <div className="md:col-span-2">
-          <div className="grid md:grid-cols-2 gap-6">
-            <PostCardList posts={postsForDisplay} />
-          </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        <PostCardList posts={postsForDisplay} />
+      </div>
 
-          <div className="mt-10">
-            <Pagination
-              perPage={NUMBER_OF_POST_PER_PAGE}
-              total={posts.length}
-              currentPage={page}
-            />
-          </div>
-        </div>
-        <div className="md:col-start-3">
-          <Sidebar categories={categories} archives={archives} />
-        </div>
-      </main>
+      <div className="mt-10">
+        <Pagination
+          perPage={NUMBER_OF_POST_PER_PAGE}
+          total={posts.length}
+          currentPage={page}
+        />
+      </div>
     </div>
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const posts = await fetchAllPosts();
-  const categories = await fetchAllCategories();
-  const archives = await fetchAllArchives();
+export { getStaticProps };
 
-  return {
-    props: {
-      posts,
-      categories,
-      archives,
-    },
-  };
-};
-
-export default IndexPage;
+export default withSidebar(IndexPage);
