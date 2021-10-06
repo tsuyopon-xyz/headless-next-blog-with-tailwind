@@ -73,3 +73,22 @@
 以下リンク先のページで紹介している、LINE公式アカウントより質問をいただけたらと思います。
 
 - [LINE公式アカウント](https://tsuyopon.xyz/lp/mail-magazine/)
+
+
+## その他
+
+Next.jsやTypeScriptの概要をまずは学習したい方は、僕のサイトで公開している「[Next.js&TypeScript体験シリーズ](https://tsuyopon.xyz/learning-contents/web-dev/javascript/nextjs-and-typescript-experience-series/)」を参考にしていただけたらと思います。
+
+
+こちらでは「解説動画」「解説スライド」を使って、
+
+- Next.jsとは何か？
+- Next.jsでTypeScriptを使うにはどんな設定が必要か？
+- Next.jsの学習をすると良く見かける「CSR, SSR, SSG, ISR」とは何か？
+- 「Next.js × Material UI」でスタイルが整ったWebページを作る流れ
+
+などを解説しています。
+
+何から始めれば良いかわからない方は、以下リンク先のページを先にご覧いただけたらと思います。
+
+[【全コンテンツ一般公開中】Next.js&TypeScript体験シリーズ](https://tsuyopon.xyz/learning-contents/web-dev/javascript/nextjs-and-typescript-experience-series/)
