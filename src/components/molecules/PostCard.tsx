@@ -2,6 +2,7 @@ import { VFC } from 'react';
 import Link from 'next/link';
 import { Label } from '@/components/atoms/Label';
 import { Card } from '@/components/atoms/Card';
+import { formatDateToHumanReadable } from '@/utils/day.util';
 import type { Post } from '@/types/Post';
 
 type Props = {
@@ -30,7 +31,7 @@ export const PostCard: VFC<Props> = ({ post }) => {
               {post.title}
             </h2>
             <div className="text-lg leading-6 font-medium text-right text-gray-600 ">
-              {post.publishedAt}
+              {formatDateToHumanReadable(post.publishedAt)}
             </div>
           </div>
         </a>
