@@ -1,7 +1,3 @@
-export type Profile = {
-  title: string;
-  body: string;
-  featuredImage: string;
-  publishedAt: string;
-  updatedAt: string;
-};
+import type { Article } from '@/types/Base';
+
+export type Profile = Article;

@@ -1,10 +1,8 @@
-export type Post = {
+import type { Article } from '@/types/Base';
+
+export type Post = Article & {
   id: string;
-  title: string;
-  body: string;
   category: Category;
-  publishedAt: string;
-  updatedAt: string;
 };
 
 export type Category = {

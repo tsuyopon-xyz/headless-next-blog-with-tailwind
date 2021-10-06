@@ -9,9 +9,9 @@ import { Article } from '@/components/organisms/Article';
 import { Profile } from '@/types/Profile';
 import { fetchProfile } from '@/services/profile.service';
 
-interface PageProps extends WithSidebarProps {
+type PageProps = WithSidebarProps & {
   profile: Profile;
-}
+};
 
 const ProfilePage: NextPage<PageProps> = ({ profile }) => {
   return (
@@ -20,7 +20,7 @@ const ProfilePage: NextPage<PageProps> = ({ profile }) => {
         <title>プロフィール</title>
       </Head>
 
-      <Article profile={profile} />
+      <Article articleData={profile} />
     </div>
   );
 };
